@@ -2,6 +2,7 @@ import React, {FC} from "react";
 import {useAppSelector} from "../store/store";
 import {selectBusqueda} from "../reducers/personajesReducer";
 import {useGetPersonajesQuery} from "../services/personaje.services";
+import Personaje from "./Personaje";
 
 
 const Grilla:FC = () => {
@@ -14,10 +15,7 @@ const Grilla:FC = () => {
 
     return <div className="App-table" style={{marginTop: 50}}>
         {personajes.results.map((personaje) => {
-            return ( <div style={{display: "flex", flexDirection: "column", alignItems:"center", marginBottom: "20px"}}>
-                <label style={{marginBottom: 5}}>Nombre: {personaje.name}</label>
-                <img src={personaje.image}/>
-            </div>)
+            return <Personaje  data={personaje}/>
         })}
     </div>
 }
